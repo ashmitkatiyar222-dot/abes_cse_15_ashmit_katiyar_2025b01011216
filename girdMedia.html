@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,*{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        main{
+            width: 1200px;
+            height: auto;
+            background-color: aqua;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 400px 500px;
+            /* grid-template-rows: 200px 500px auto; */
+            gap: 10px;
+        }
+        .box{
+            background-color: #CCC;
+            height: 300px;
+        }
+        @media screen and (max-width:580px) {
+            main{
+                display: grid;
+                grid-template-columns: repeat(1,1fr);
+                gap: 10px;
+            }    
+        }
+        @media screen and (min-width:400px) and (max-width:700px) {
+            h1{
+                color: rgb(232, 103, 5);
+                font-size: 50px;
+            }
+            
+        }
+        p{
+            /* font-size: 2em; */
+            /* font-size: 5vh; */
+            /* font-size: 5rem;* */
+        }
+      
+    </style>
+</head>
+<body>
+    <h1>hello ABES</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero natus praesentium autem quam quasi enim itaque, facilis quis commodi. Accusamus ea consequatur cum natus dolorum voluptate vel quod nihil totam!</p>
+    <main>
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </main>
+    
+</body>
+</html>
