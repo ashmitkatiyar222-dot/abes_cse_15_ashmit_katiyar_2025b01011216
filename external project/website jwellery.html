@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxe | Fine Jewelry</title>
+
+<style>
+:root {
+    --primary-color:#1a1a1a;
+    --accent-color:#d4af37;
+    --bg-color:#f9f9f9;
+    --white:#ffffff;
+    --glass-bg:rgba(255,255,255,0.85);
+    --glass-border:rgba(255,255,255,0.3);
+    --font-main:'Helvetica Neue', Arial, sans-serif;
+    --font-serif:'Georgia', serif;
+    --shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+.top-grid-bar {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 12px 20px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: grid;
+    /* 3 equal columns */
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    align-items: center;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-main);background:var(--bg-color);color:var(--primary-color);}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{width:100%;display:block}
+
+/* NAV */
+header{position:sticky;top:0;z-index:1000}
+nav{
+    background:var(--glass-bg);
+    backdrop-filter:blur(12px);
+    padding:0 40px;
+    height:80px;
+    width:90%;
+    max-width:1200px;
+    margin:20px auto;
+    border-radius:50px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:var(--shadow);
+}
+.logo{font-family:var(--font-serif);font-size:1.8rem;font-weight:700}
+.nav-links{display:flex;gap:30px}
+.nav-links a{text-transform:uppercase;font-size:.85rem;font-weight:600}
+.icons{display:flex;gap:20px;font-size:1.2rem}
+.nav-links a{
+    text-transform:uppercase;
+    font-size:.85rem;
+    font-weight:600;
+    position: relative; /* Required for absolute positioning of pseudo-element */
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 2px; 
+    background: var(--accent-color);
+    top: 50%;
+    left: 0;
+   
+    transform: translateY(-50%);
+    
+    transition: width 0.3s ease-in-out;
+}
+
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+.nav-links a:hover {
+    color: var(--accent-color); 
+}
+
+
+.banner{
+    height:90vh;
+    background:
+      linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+      url("jwellery 2.png") center/cover no-repeat;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:goldenrod;
+    padding:20px;
+    width: 100%;
+}
+.banner h1{
+    font-family:var(--font-serif);
+    font-size:4rem;
+    margin-bottom:20px;
+}
+.banner p{
+    max-width:600px;
+    font-size:1.2rem;
+    margin-bottom:40px;
+}
+.btn{
+    padding:15px 40px;
+    background:white;
+    border:none;
+    font-weight:bold;
+    letter-spacing:2px;
+    cursor:pointer;
+}
+.btn:hover{
+    background:var(--accent-color);
+    color:white;
+}
+
+
+.container{max-width:1200px;margin:80px auto;padding:0 20px}
+.section-title{text-align:center;margin-bottom:60px}
+.section-title h2{font-family:var(--font-serif);font-size:2.5rem}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:40px;
+}
+
+.product-card{
+    background:white;
+    transition:.4s;
+}
+.product-card:hover{
+    transform:translateY(-10px);
+    box-shadow:var(--shadow);
+}
+.product-image{
+    height:570px;
+    overflow:hidden;
+    
+}
+
+.product1{
+    background-image: url(product\ 1.avif);
+    width: 100%;
+    height: 100%;
+}
+.product2{
+    background-image: url(product2.avif);
+    width: 100%;
+    height: 100%;
+}
+
+
+.product-info{text-align:center;padding:25px}
+.product-category{
+    font-size:.75rem;
+    letter-spacing:2px;
+    color:#888;
+}
+.product-title{font-weight:600;margin:8px 0}
+.product-price{color:var(--accent-color);font-weight:700}
+
+
+
+
+.showcase-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows:repeat(3, 220px); /* 2x height feel */
+    gap:30px;
+    margin-bottom:100px;
+}
+
+.grid-item{
+   
+    
+    font-family:var(--font-serif);
+    font-size:2rem;
+    font-weight:600;
+    transition:0.4s;
+        background:#f2f2f2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    
+}
+.grid-item img{
+    width:100%;
+    height:100%;
+    object-fit:contain; 
+}
+
+
+.grid-item:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+}
+
+
+
+.feature-card{
+    height:420px;
+    border-radius:20px;
+    background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url("feature-card.jpg") center/cover no-repeat;
+    
+    display:flex;
+    align-items:center;
+    padding:60px;
+    box-shadow:var(--shadow);
+    transition:0.4s ease;
+     background-image: url(gold\ watch.png);
+    background-size: cover;
+
+}
+
+.feature-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
+}
+
+.feature-content{
+    max-width:520px;
+    color:white;
+   
+}
+
+.feature-content h2{
+    font-family:var(--font-serif);
+    font-size:2.8rem;
+    margin-bottom:20px;
+}
+
+.feature-content p{
+    font-size:1.1rem;
+    margin-bottom:30px;
+    line-height:1.6;
+    opacity:0.95;
+}
+.new-arrival{
+    margin:100px auto;
+}
+
+.section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.section-header h2{
+    font-family:var(--font-serif);
+    font-size:2.4rem;
+}
+
+.view-all{
+    font-size:.9rem;
+    font-weight:600;
+    color:#333;
+}
+
+.arrival-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows:repeat(2, 1fr);
+    gap:30px;
+}
+
+
+.product-card{
+    background:#fafafa;
+    padding:30px;
+    text-align:center;
+}
+
+.product-card img{
+    max-height:150px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
+
+.product-card h4{
+    font-size:1rem;
+    margin-bottom:6px;
+}
+
+.product-card p{
+    color:#888;
+    font-size:.9rem;
+}
+
+
+.promo-card{
+    grid-row:span 2;
+    position:relative;
+    overflow:hidden;
+    height: 550px;
+
+}
+
+.promo-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.promo-content{
+    position:absolute;
+    bottom:40px;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+    color:white;
+}
+
+.promo-content span{
+    letter-spacing:2px;
+    font-size:.75rem;
+}
+
+.promo-content h3{
+    font-family:var(--font-serif);
+    font-size:2rem;
+    margin:10px 0 20px;
+}
+
+.promo-content button{
+    padding:12px 28px;
+    background:transparent;
+    border:1px solid white;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.promo-content button:hover{
+    background:white;
+    color:black;
+}
+
+
+ .carousel-wrapper {
+        width: 100%;
+        max-width: 1600px;
+        margin-bottom: 5px;
+        
+        text-align: center;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        background-color: #fcfcfc;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    .section-subtitle {
+        color: var(--text-light);
+        margin-bottom: 40px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    
+    .review-slider {
+        display: flex;
+        gap: 30px;
+        overflow-x: auto;
+        
+        
+        
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        
+        
+        scrollbar-width: none; 
+        -ms-overflow-style: none;  
+    }
+    
+    .review-slider::-webkit-scrollbar {
+        display: none; 
+    }
+
+    /* --- 4. Review Card --- */
+    .review-card {
+        /* Layout */
+        flex: 0 0 300px; 
+        scroll-snap-align: center;
+        
+        /* Aesthetics */
+        background: var(--white);
+        border: 1px solid rgba(212, 175, 55, 0.2); 
+        padding: 40px 30px;
+        border-radius: 4px; 
+        position: relative;
+        
+        
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .review-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15); 
+        border-color: goldenrod;
+    }
+
+   
+    .quote-icon {
+        font-family: 'Playfair Display', serif;
+        font-size: 4rem;
+        color: goldenrod;
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        opacity: 0.5;
+        line-height: 1;
+    }
+
+    
+    .review-text {
+        font-style: italic;
+        color:goldenrod;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .stars {
+        color: goldenrod;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+
+    .reviewer-name {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        color: goldenrod;
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .reviewer-product {
+        font-size: 0.8rem;
+        color: goldenrod;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 5px;
+        display: block;
+    }
+
+    
+    .instructions {
+        margin-top: 20px;
+        font-size: 0.85rem;
+        color: var(--text-light);
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    
+    .arrow {
+        color: var(--gold);
+        font-size: 1.2rem;
+    }
+
+    
+    @media (min-width: 768px) {
+        .review-card {
+            flex: 0 0 350px; /* Wider cards on desktop */
+        }
+    }
+    @media screen and (max-width: 768px) {
+    
+    header { position: relative; }
+    
+    nav {
+        flex-direction: column; 
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+}
+
+
+
+
+
+
+
+footer{
+    background:var(--primary-color);
+    color:#ccc;
+    padding:80px 20px 20px;
+}
+.footer-content{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:60px;
+}
+.footer-col h4{color:white;margin-bottom:20px;font-family:var(--font-serif)}
+.newsletter-input{
+    width:100%;
+    padding:12px;
+    background:transparent;
+    border:1px solid #444;
+    color:white;
+}
+.copyright{
+    text-align:center;
+    margin-top:40px;
+    font-size:.8rem;
+    border-top:1px solid #333;
+    padding-top:20px;
+}
+</style>
+</head>
+
+<body>
+    <div class="top-grid-bar">
+    <div>📞 +1 (555) LUXE-JWL</div>
+    <div>✨ Free Global Shipping Orders Over $500</div>
+    <div>📍 Book a Private Appointment</div>
+</div>
+
+
+
+<header>
+<nav>
+    <div class="logo">LUXE.</div>
+    <ul class="nav-links">
+        <li><a href="website jwellery.html">Home</a></li>
+        <li><a href="#">Necklaces</a></li>
+        <li><a href="#">Earrings</a></li>
+        <li><a href="#">Rings</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <div class="icons">🔍 🛒</div>
+</nav>
+</header>
+
+<section class="banner">
+    <div class="banner-content">
+        <h1>Timeless Elegance</h1>
+        <p>Discover our exclusive collection of handcrafted gold and diamond jewelry designed to make you shine.</p>
+        <a href="shop collection.html" class="btn">Shop Collection</a>
+    </div>
+</section>
+<section class="container">
+<div class="section-title">
+    <h2>New Arrivals</h2>
+    <p>Handpicked pieces just for you</p>
+</div>
+
+<div class="product-grid">
+    <div class="product-card">
+        <div class="product-image">
+            <div class="product1">
+            
+            </div>
+        </div>
+        <div class="product-info">
+            <div class="product-category">Rings</div>
+            <div class="product-title">Diamond Solitaire</div>
+            
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-image">
+            <div class="product2">
+            
+        </div>
+        </div>
+        <div class="product-info">
+            <div class="product-category">Bracelets</div>
+            <div class="product-title">Minimalist Gold Cuff</div>
+            
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<section class="container showcase-grid">
+    <div class="grid-item"><img src="1.avif"></div>
+    <div class="grid-item"><img src="2.avif"></div>
+    <div class="grid-item"><img src="3.avif"></div>
+    <div class="grid-item"><img src="4.avif"></div>
+    <div class="grid-item"><img src="5.avif"></div>
+    <div class="grid-item"><img src="6.avif"></div>
+    <div class="grid-item"><img src="7.avif"></div>
+    <div class="grid-item"><img src="8.avif"></div>
+    <div class="grid-item"><img src="9.avif"></div>
+</section>
+
+
+<section class="container">
+    <div class="feature-card">
+        <div class="feature-content">
+            <h2>Crafted for Eternity</h2>
+            <p>
+                Every piece is a story — designed with precision,
+                shaped by tradition, and perfected for modern elegance.
+            </p>
+            <button class="btn">Explore Collection</button>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="banner3" >
+    
+</section>
+<section class="new-arrival container">
+
+  <div class="section-header">
+    <h2>New Arrival</h2>
+    <a href="shop collection.html" class="view-all">View All New Arrival →</a>
+  </div>
+
+  <div class="arrival-grid">
+
+    
+    <div class="product-card">
+      <img src="9.avif" alt="">
+      <h4>Silver Chain Watch</h4>
+      <p>$199.99</p>
+    </div>
+
+   
+    <div class="product-card">
+      <img src="8.avif" alt="">
+      <h4>Gold Pearl Ring</h4>
+      <p>$499.99</p>
+    </div>
+
+    
+    <div class="promo-card">
+      <img src="wedding edition.avif" alt="">
+      <div class="promo-content">
+        <span>SALE</span>
+        <h3>Wedding Edition</h3>
+        <button><a.1 href="shop collection.html">SHOP NOW</a.1></button>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <img src="15.avif" alt="">
+      <h4>Gold Chain Necklace</h4>
+      <p>$149.99</p>
+    </div>
+
+    
+    <div class="product-card">
+      <img src="14.avif" alt="">
+      <h4>Bronze Plants Earrings</h4>
+      <p>$79.99</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="carousel-wrapper">
+    <h2 class="section-title">Client Love</h2>
+    <div class="section-subtitle">Stories of brilliance & elegance</div>
+
+    <div class="review-slider">
+        
+        <div class="review-card">
+            <div class="quote-icon">“</div>
+            <div class="stars">★★★★★</div>
+            <p class="review-text">The Solitaire ring is absolutely breathtaking. The gold finish is rich and the craftsmanship is unlike anything I've seen before.</p>
+            <h4 class="reviewer-name">Sarah Jenkins</h4>
+            <span class="reviewer-product">Verified Buyer • Gold Solitaire</span>
+        </div>
+
+        <div class="review-card">
+            <div class="quote-icon">“</div>
+            <div class="stars">★★★★★</div>
+            <p class="review-text">I bought the vintage necklace for my anniversary. The packaging was luxurious and the piece itself shines brilliantly.</p>
+            <h4 class="reviewer-name">Emily Clarke</h4>
+            <span class="reviewer-product">Verified Buyer • Vintage Necklace</span>
+        </div>
+
+        <div class="review-card">
+            <div class="quote-icon">“</div>
+            <div class="stars">★★★★★</div>
+            <p class="review-text">Exquisite quality. I was worried about buying jewelry online, but the detail on the earrings is perfect. Highly recommended.</p>
+            <h4 class="reviewer-name">Priya Patel</h4>
+            <span class="reviewer-product">Verified Buyer • Drop Earrings</span>
+        </div>
+
+        <div class="review-card">
+            <div class="quote-icon">“</div>
+            <div class="stars">★★★★★</div>
+            <p class="review-text">Customer service helped me pick the perfect size. The bracelet feels heavy and premium. Will definitely shop here again.</p>
+            <h4 class="reviewer-name">Michael Ross</h4>
+            <span class="reviewer-product">Verified Buyer • Men's Gold Cuff</span>
+        </div>
+        
+        <div class="review-card">
+            <div class="quote-icon">“</div>
+            <div class="stars">★★★★★</div>
+            <p class="review-text">Simply stunning. The diamonds sparkle in low light and the setting is very secure. A true masterpiece.</p>
+            <h4 class="reviewer-name">Anita Desai</h4>
+            <span class="reviewer-product">Verified Buyer • Diamond Set</span>
+        </div>
+
+    </div>
+
+    <div class="instructions">
+        <span class="arrow">←</span> 
+        <span>Swipe or Scroll to view more</span> 
+        <span class="arrow">→</span>
+    </div>
+</div>
+
+
+
+
+<footer>
+<div class="footer-content">
+    <div class="footer-col">
+        <h4>LUXE.</h4>
+        <p>Redefining luxury for the modern era.</p>
+    </div>
+    <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+            <li>New Arrivals</li>
+            <li>Wedding</li>
+            <li>Gifts</li>
+        </ul>
+    </div>
+    <div class="footer-col">
+        <h4>Stay Connected</h4>
+        <input class="newsletter-input" placeholder="Email">
+    </div>
+</div>
+<div class="copyright">© 2025 Luxe Jewelry</div>
+</footer>
+
+
+
+</body>
+</html>
+
+
+
+

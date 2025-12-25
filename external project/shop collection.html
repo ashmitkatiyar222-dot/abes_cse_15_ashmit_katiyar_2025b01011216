@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Grid Layout</title>
+    <style>
+        /* FIX 1: Defined the missing variables so colors work */
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #D4AF37; /* Gold */
+            --white: #ffffff;
+            --bg-color: #f8fafa;
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            --font-main: sans-serif;
+            --font-serif: serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-color);
+            color: var(--primary-color);
+            /* FIX 2: Removed grid from body. Body should just stack elements (Top bar -> Nav -> Content) */
+            display: block; 
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- TOP BAR --- */
+        .top-grid-bar {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 20px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            align-items: center;
+        }
+
+        /* --- NAVIGATION --- */
+        header { position: sticky; top: 0; z-index: 1000; }
+        nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            padding: 0 40px;
+            height: 80px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+        }
+        .logo { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; }
+        .nav-links { display: flex; gap: 30px; }
+        .icons { display: flex; gap: 20px; font-size: 1.2rem; cursor: pointer; }
+
+        .nav-links a {
+            text-transform: uppercase;
+            font-size: .85rem;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        /* Strikethrough Animation */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* --- PRODUCT GRID CONTAINER --- */
+        /* FIX 3: Created a specific container for the items */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px 40px; /* Breathing room */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* --- PRODUCT CARDS --- */
+        /* FIX 4: Changed generic "div" selector to ".product-card" */
+        .product-card {
+            cursor: pointer; /* "hand" is deprecated, use pointer */
+            border: 1px solid #ddd;
+            background-color: #fff;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: transform 0.2s; /* Added nice hover effect */
+        }
+
+        .product-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 80%;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-grid-bar">
+        <div>📞 +1 (555) LUXE-JWL</div>
+        <div>✨ Free Global Shipping Orders Over $500</div>
+        <div>📍 Book a Private Appointment</div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">LUXE.</div>
+            <ul class="nav-links">
+                <li><a href="website jwellery.html">Home</a></li>
+                <li><a href="#">Necklaces</a></li>
+                <li><a href="#">Earrings</a></li>
+                <li><a href="#">Rings</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <div class="icons">🔍 🛒</div>
+        </nav>
+    </header>
+
+    <main class="product-grid">
+        <div class="product-card"><img src="1.avif" alt="Img 1">1</div>
+        <div class="product-card"><img src="2.avif" alt="Img 2">2</div>
+        <div class="product-card"><img src="3.avif" alt="Img 3">3</div>
+        <div class="product-card"><img src="4.avif" alt="Img 4">4</div>
+        <div class="product-card"><img src="5.avif" alt="Img 5">5</div>
+        <div class="product-card"><img src="6.avif" alt="Img 6">6</div>
+        <div class="product-card"><img src="7.avif" alt="Img 7">7</div>
+        <div class="product-card"><img src="8.avif" alt="Img 8">8</div>
+        <div class="product-card"><img src="9.avif" alt="Img 9">9</div>
+        <div class="product-card"><img src="10.avif" alt="Img 10">10</div>
+        <div class="product-card"><img src="11.avif" alt="Img 11">11</div>
+        <div class="product-card"><img src="12.avif" alt="Img 12">12</div>
+        <div class="product-card"><img src="13.avif" alt="Img 13">13</div>
+        <div class="product-card"><img src="14.avif" alt="Img 14">14</div>
+        <div class="product-card"><img src="15.avif" alt="Img 15">15</div>
+    </main>
+
+</body>
+</html>
