@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo navbar</title> <style> 
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: "poppins", "sans-serif";
+            background: #0f172a;
+            color: white;
+        }
+      nav{
+        width: 100%;
+        padding: 1rem 5%;
+        background: rgba(255,255,255,0.05);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        backdrop-filter: blur(15px);
+        margin: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+      }  
+      .logo{
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #38bdf8; 
+        letter-spacing: 1px;
+      }
+      .nav-links{
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+
+      }
+      .nav-links li a{
+        position: relative;
+        font-size: 1.05 rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: #e2e8f0;
+        transition: 0.3s;
+      }
+      .nav-links li a:hover{
+        color: #38bdf8;
+        text-shadow: 0 0 10px #38bdf8;
+
+      }
+      .btns{
+        display: flex;
+      }
+      .btn{
+        padding: 0.5rem 1.5rem;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 1rem;
+        background: #38bdf8;
+        color: #0f172a;
+        box-shadow: 0 0 15px #38bdf8 ;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+
+
+      }
+      .btn:hover{
+        background: #0aa9f3;
+        box-shadow: 0 0 25px #0aa9f3;
+        justify-content: space;
+
+      }
+
+    </style>
+    
+</head>
+<body>
+     <nav>
+       <div class="logo">ashmit</div>
+       <ul class="nav-links">
+        <li><a href="#"></a>Home</li>
+        <li><a href="#"></a>services</li>
+        <li><a href="#"></a>about us</li>
+        <li><a href=" #"></a>help </li>
+       </ul>
+       <div class="btns">
+        <button class="btn">Login</button>
+       </div>
+     </nav>
+    
+</body>
+</html>
